@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+      #position {
+        border: 2px dashed red;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="focus-blur"
+      placeholder="点击获得焦点，点击外部失去焦点"
+    />
+
+    <div>
+      <a href="#" id="test_jQuery">点我试试看！</a>
+    </div>
+
+    <div
+      id="mousedown-box"
+      style="
+        width: 200px;
+        height: 100px;
+        background-color: red;
+        text-align: center;
+      "
+    >
+      <span style="line-height: 100px">按下鼠标</span>
+    </div>
+
+    <span id="info"></span>
+    <br />
+    <div style="margin: 20px" id="position"></div>
+
+    <input
+      type="text"
+      id="input-box"
+      placeholder="按下任意键试试"
+      style="width: 200px; height: 30px"
+    />
+
+    <script>
+      // * 测试jQuery的使用: $("选择器").action()
+      $("#test_jQuery").click(function () {
+        alert("hello, jQuery");
+      });
+
+      // * 其他事件实践
+      $("#mousedown-box").mousedown(function () {
+        $(this).css("background-color", "blue");
+      });
+
+      $("#mousedown-box").mouseup(function () {
+        $(this).css("background-color", "lightgreen");
+      }); // 是将 DOM 元素转换成 jQuery 对象，可以直接使用 jQuery 的各种便捷方法 -> 操作的正是当前事件触发的那个 DOM 元素
+
+      // 监控鼠标移动事件并获得坐标
+      /*
+      1. 确保元素完全加载完成再执行操作
+      2. 填入具体操作
+      */
+      $(function () {
+        $("#position").mousemove(function (event) {
+          $("#info").text("坐标:(" + event.pageX + "," + event.pageY + ")"); // 添加文本信息显示
+        });
+      });
+
+      $("#focus-blur").focus(function () {
+        $(this).css("border", "2px solid blue"); // 获得焦点时边框变蓝
+      });
+
+      $("#focus-blur").blur(function () {
+        $(this).css("border", "1px solid gray"); // 失去焦点时恢复默认边框
+      });
+
+      $("#input-box").keydown(function (event) {
+        console.log("key:", event.key); // 返回按下的键名，如 "A" 或 "Enter"
+        console.log("which:", event.which); // 返回键码，如 65（代表 "A"）
+      });
+    </script>
+  </body>
+</html>

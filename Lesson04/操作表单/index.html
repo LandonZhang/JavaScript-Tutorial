@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="user_info">
+      <form action="" method="post" class="form">
+        <span>用户名:</span> <input type="text" />
+        <br />
+        <span>性别:</span>
+        <input type="radio" name="sex" value="box" />男
+        <input type="radio" name="sex" value="girl" />女
+      </form>
+    </div>
+
+    <script>
+      let text = document.getElementsByClassName("form")[0].children[1];
+      //   text.value; // 获得框中输入值
+      let radio_boy = document.getElementsByName("sex")[0];
+      let radio_girl = document.getElementsByName("sex")[1];
+    </script>
+  </body>
+</html>

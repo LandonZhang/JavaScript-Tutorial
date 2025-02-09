@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="template/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <!-- 禁用 a 标签的跳转行为 -->
+    <!-- <div class="href">
+      <span>
+        <a href="https://www.baidu.com" id="a">点我试试看！</a>
+      </span>
+    </div>
+
+    <script>
+      $(function () {
+        $("#a").click(function (event) {
+          event.preventDefault();
+        });
+      });
+    </script> -->
+
+    <!-- 实验组织事件的向上传播 -->
+    <div class="father">
+      <button>快按我!</button>
+    </div>
+
+    <script>
+      // 绑定父类行为
+      $(function () {
+        $(".father").click(function (event) {
+          // event.stopPropagation();
+          alert("父类被点击!");
+          $(this).text("为什么点我?呜呜呜~");
+          $(this).css({ border: "2px dashed red", background: "skyblue" });
+        });
+      });
+
+      // 绑定子类行为
+      $(function () {
+        $(".father button:first-child").click(function (event) {
+          alert("子类被点击");
+          event.stopPropagation();
+        });
+      });
+    </script>
+  </body>
+</html>

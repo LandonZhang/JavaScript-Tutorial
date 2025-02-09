@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dl id="firstTry">
+      <dt>This is a define list:</dt>
+      <dd>value 1</dd>
+      <dd>value 2</dd>
+      <dd>value 3</dd>
+    </dl>
+
+    <div class="father">
+      <h1>一级标题</h1>
+      <p>一段文字</p>
+      <p>两段文字</p>
+      <p>三段文字</p>
+    </div>
+
+    <script>
+      // * 获得文档树节点
+      let lst = document.getElementById("firstTry"); // 使用ID获得节点
+      let father = document.getElementsByClassName("father"); // 使用类名称获得节点
+      let h1 = document.getElementsByTagName("h1");
+      let child = father[0].children; // 获得全部的元素集合 HTMLCollection
+      let fc = father[0].firstElementChild;
+      let lc = father[0].lastElementChild;
+      let cn = father[0].childNodes; // 获得全部的结点集合（包括文本结点） NodeList
+    </script>
+  </body>
+</html>

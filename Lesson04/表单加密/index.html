@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        margin: 20px;
+      }
+      #submit {
+        margin-left: 10px;
+      }
+    </style>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  </head>
+  <body>
+    <div class="user_info">
+      <!--绑定函数在表单提交上 -->
+      <form
+        action="../操作表单/index.html"
+        method="post"
+        onsubmit="return seek()"
+      >
+        <span>用户名:</span>
+        <input type="text" id="username" name="username" />
+        <br />
+        <span>密码:</span>
+        <input type="password" id="looking" />
+        <br />
+        <input type="hidden" name="password" id="password" />
+        <!--绑定“点击”事件 -> onclick="seek()-->
+        <input type="submit" id="submit" onclick="check()" />
+      </form>
+    </div>
+
+    <script>
+      function seek() {
+        let name = document.getElementById("username").value;
+        let pwd = document.getElementById("password").value;
+        if (name.length <= 0) {
+          alert("输入的用户名过短!");
+          return false;
+        } else {
+          alert("提交成功!");
+          return true;
+        }
+      }
+
+      // 使用md5算法加密用户输入
+      function check() {
+        alert("check开始");
+        let wrapper = document.getElementById("looking");
+        let pwd = document.getElementById("password");
+        pwd.value = md5(pwd.value);
+      }
+    </script>
+  </body>
+</html>

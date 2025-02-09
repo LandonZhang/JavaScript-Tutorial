@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="template/jquery-3.7.1.min.js"></script>
+    <style>
+      ul li:nth-child(2) {
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="test_ul">
+      <li name="Python" id="Python">Python</li>
+      <li>C++</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    // 文本节点操作 -> 获得值
+    $("#test_ul li[name=Python]").text(); // 获得值
+    // $("#test_ul li[name=Python]").text("best_lang"); // 设置值
+  </script>
+</html>
